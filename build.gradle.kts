@@ -6,9 +6,6 @@ plugins {
 
 allprojects {
 
-    group = "net.justkilli"
-
-
     apply(plugin = "java")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
