@@ -7,7 +7,7 @@ plugins {
 allprojects {
 
     group = "net.justkilli"
-    version = "0.0.1-DEV"
+
 
     apply(plugin = "java")
     apply(plugin = "org.springframework.boot")
