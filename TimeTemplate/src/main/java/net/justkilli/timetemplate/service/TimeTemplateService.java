@@ -6,6 +6,8 @@ import net.justkilli.timetemplate.request.TimeTemplateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Service responsible for creating and retrieving TimeTemplates.
  * */
@@ -51,6 +53,15 @@ public class TimeTemplateService {
     public void createAndSaveTimeTemplate(TimeTemplateRequest request) {
         TimeTemplate timeTemplate = createTimeTemplate(request);
         repository.save(timeTemplate);
+    }
+
+    /**
+     * Gets a TimeTemplate with the provided ID.
+     * @param timeTemplateId The ID of the TimeTemplate.
+     * @return An Optional with the found TimeTemplate, or an Empty Optional if no TimeTemplate with the provided ID was found.
+     * */
+    public Optional<TimeTemplate> getTimeTemplate(int timeTemplateId){
+        return repository.findById(timeTemplateId);
     }
 
     /**

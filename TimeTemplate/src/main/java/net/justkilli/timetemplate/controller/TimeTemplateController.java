@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 /**
  * Controller for Creating and Getting TimeTemplates.
  * */
@@ -53,4 +55,19 @@ public class TimeTemplateController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    /**
+     * Gets a TimeTemplate with its ID.
+     * @param timeTemplateId The ID of the TimeTemplate.
+     * @return A Response Entity that contains the TimeTemplate Object which was found or null if no TimeTemplate with the provided ID was found.<br>
+     *        {@link HttpStatus#NOT_FOUND} --> No Template with the provided ID was found.
+     *        {@link HttpStatus#FOUND} --> The Template with the provided ID was found.
+     * */
+    @GetMapping("/retrieve/{timeTemplateId}")
+    public ResponseEntity<TimeTemplate> getTimeTemplate(@PathVariable int timeTemplateId) {
+        logger.info("Get TimeTemplate endpoint accessed by: {}", servletRequest.getRemoteAddr());
+
+        Optional<TimeTemplate> result = timeTemplateService.getTimeTemplate(timeTemplateId);
+
+        return result.isEmpty() ? new ResponseEntity<>(null, HttpStatus.NOT_FOUND) : new ResponseEntity<>(result.get(), HttpStatus.FOUND);
+    }
 }
