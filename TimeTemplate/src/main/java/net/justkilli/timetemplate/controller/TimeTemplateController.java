@@ -48,8 +48,7 @@ public class TimeTemplateController {
         logger.info("Create new TimeTemplate endpoint accessed by: {}", servletRequest.getRemoteAddr());
         if(!timeTemplateService.isValidRequest(request)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-        TimeTemplate timeTemplate = new TimeTemplate(request.getWorkDuration(), request.getNormalPauseDuration(), request.getBigPauseDuration(), request.getWorkCycles());
-        repository.save(timeTemplate);
+        timeTemplateService.createAndSaveTimeTemplate(request);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

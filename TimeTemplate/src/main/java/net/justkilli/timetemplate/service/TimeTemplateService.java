@@ -1,5 +1,6 @@
 package net.justkilli.timetemplate.service;
 
+import net.justkilli.timetemplate.TimeTemplate;
 import net.justkilli.timetemplate.repository.TimeTemplateRepository;
 import net.justkilli.timetemplate.request.TimeTemplateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,27 @@ public class TimeTemplateService {
     }
 
 
+    /**
+     * Creates a new TimeTemplate Object using the provided TimeTemplateRequest data
+     * and saves it to the corresponding database table.
+     *
+     * This method uses the {@link #createTimeTemplate(TimeTemplateRequest)} method to create
+     * the TimeTemplate instance before saving it.
+     *
+     * @param request the data of the new TimeTemplate
+     */
+    public void createAndSaveTimeTemplate(TimeTemplateRequest request) {
+        TimeTemplate timeTemplate = createTimeTemplate(request);
+        repository.save(timeTemplate);
+    }
+
+    /**
+     * Creates a TimeTemplate Object with the provided Data.
+     * @param request The Request from which the data for the TimeTemplate should be retrieved.
+     * @return A new TimeTemplate instance with the provided data.
+     * */
+    private TimeTemplate createTimeTemplate(TimeTemplateRequest request) {
+        return new TimeTemplate(request.getWorkDuration(), request.getNormalPauseDuration(), request.getBigPauseDuration(), request.getWorkCycles());
+    }
 
 }
