@@ -1,2 +1,2 @@
-version = "0.1.8-DEV"
+version = "0.1.9-DEV"
 group = "net.justkilli.timetemplate"

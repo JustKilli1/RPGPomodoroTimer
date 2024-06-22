@@ -1,9 +1,7 @@
-package net.justkilli.timetemplate;
+package net.justkilli.timetemplate.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -11,6 +9,7 @@ import lombok.NoArgsConstructor;
  * */
 @Entity
 @NoArgsConstructor
+@Getter
 public class TimeTemplate {
 
     /**
@@ -18,7 +17,7 @@ public class TimeTemplate {
      * */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int timeTemplateId;
+    private Long timeTemplateId;
 
     /**
      * The Duration of a Work cycle.

@@ -1,6 +1,6 @@
 package net.justkilli.timetemplate.repository;
 
-import net.justkilli.timetemplate.TimeTemplate;
+import net.justkilli.timetemplate.entity.TimeTemplate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package net.justkilli.timetemplate.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import net.justkilli.timetemplate.TimeTemplate;
+import net.justkilli.timetemplate.entity.UserTimeTemplate;
 import net.justkilli.timetemplate.request.TimeTemplateRequest;
 
 import net.justkilli.timetemplate.service.TimeTemplateService;
@@ -55,17 +55,17 @@ public class TimeTemplateController {
     }
 
     /**
-     * Gets a TimeTemplate with its ID.
-     * @param timeTemplateId The ID of the TimeTemplate.
-     * @return A Response Entity that contains the TimeTemplate Object which was found or null if no TimeTemplate with the provided ID was found.<br>
+     * Gets a UserTimeTemplate with its ID.
+     * @param userTimeTemplateId The ID of the UserTimeTemplate.
+     * @return A Response Entity that contains the UserTimeTemplate Object which was found or null if no UserTimeTemplate with the provided ID was found.<br>
      *        {@link HttpStatus#NOT_FOUND} --> No Template with the provided ID was found.
      *        {@link HttpStatus#FOUND} --> The Template with the provided ID was found.
      * */
-    @GetMapping("/retrieve/{timeTemplateId}")
-    public ResponseEntity<TimeTemplate> getTimeTemplate(@PathVariable int timeTemplateId) {
-        logger.info("Get TimeTemplate endpoint accessed by: {}", servletRequest.getRemoteAddr());
+    @GetMapping("/retrieve/{userTimeTemplateId}")
+    public ResponseEntity<UserTimeTemplate> getUserTimeTemplate(@PathVariable int userTimeTemplateId) {
+        logger.info("Get UserTimeTemplate endpoint accessed by: {}", servletRequest.getRemoteAddr());
 
-        Optional<TimeTemplate> result = timeTemplateService.getTimeTemplate(timeTemplateId);
+        Optional<UserTimeTemplate> result = timeTemplateService.getUserTimeTemplate(userTimeTemplateId);
 
         return result.isEmpty() ? new ResponseEntity<>(null, HttpStatus.NOT_FOUND) : new ResponseEntity<>(result.get(), HttpStatus.FOUND);
     }

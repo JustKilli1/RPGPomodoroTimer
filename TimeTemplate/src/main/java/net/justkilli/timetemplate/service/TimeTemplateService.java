@@ -1,7 +1,9 @@
 package net.justkilli.timetemplate.service;
 
-import net.justkilli.timetemplate.TimeTemplate;
+import net.justkilli.timetemplate.entity.TimeTemplate;
+import net.justkilli.timetemplate.entity.UserTimeTemplate;
 import net.justkilli.timetemplate.repository.TimeTemplateRepository;
+import net.justkilli.timetemplate.repository.UserTimeTemplateRepository;
 import net.justkilli.timetemplate.request.TimeTemplateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,10 @@ public class TimeTemplateService {
      * Repository used to communicate with the corresponding TimeTemplate Database Table.
      * */
     @Autowired
-    private TimeTemplateRepository repository;
+    private TimeTemplateRepository timeTemplateRepository;
+
+    @Autowired
+    private UserTimeTemplateRepository userTimeTemplateRepository;
 
     /**
      * Checks if the provided Request is valid.
@@ -51,7 +56,7 @@ public class TimeTemplateService {
      */
     public void createAndSaveTimeTemplate(TimeTemplateRequest request) {
         TimeTemplate timeTemplate = createTimeTemplate(request);
-        repository.save(timeTemplate);
+        timeTemplateRepository.save(timeTemplate);
     }
 
     /**
@@ -60,7 +65,16 @@ public class TimeTemplateService {
      * @return An Optional with the found TimeTemplate, or an Empty Optional if no TimeTemplate with the provided ID was found.
      * */
     public Optional<TimeTemplate> getTimeTemplate(int timeTemplateId){
-        return repository.findById(timeTemplateId);
+        return timeTemplateRepository.findById(timeTemplateId);
+    }
+
+    /**
+     * Gets a UserTimeTemplate with the provided ID.
+     * @param userTimeTemplateId The ID of the UserTimeTemplate.
+     * @return An Optional with the found UserTimeTemplate, or an Empty Optional if no UserTimeTemplate with the provided ID was found.
+     * */
+    public Optional<UserTimeTemplate> getUserTimeTemplate(int userTimeTemplateId){
+        return userTimeTemplateRepository.findById(userTimeTemplateId);
     }
 
     /**
