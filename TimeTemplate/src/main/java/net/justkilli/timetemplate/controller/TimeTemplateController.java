@@ -5,6 +5,7 @@ import net.justkilli.timetemplate.TimeTemplate;
 import net.justkilli.timetemplate.repository.TimeTemplateRepository;
 import net.justkilli.timetemplate.request.TimeTemplateRequest;
 
+import net.justkilli.timetemplate.service.TimeTemplateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,21 +32,21 @@ public class TimeTemplateController {
     private HttpServletRequest servletRequest;
 
     /**
-     * Responsible for communicating with the Database Table TimeTemplate.
+     * Responsible for creating and retrieving TimeTemplates.
      * */
     @Autowired
-    private TimeTemplateRepository repository;
+    private TimeTemplateService timeTemplateService;
 
     /**
      * Responsible for creating a new TimeTemplate Entry in the Database.
      * @param request The {@link TimeTemplateRequest} Object that contains all relevant Data to create a new TimeTemplate Entry.
-     * @return HttpStatus.BAD_REQUEST --> The request was invalid. See {@link TimeTemplateRequest#isValid(TimeTemplateRequest)} <br>
-     *         HttpStatus.CREATED --> The Entry was successfully created.
+     * @return {@link HttpStatus#BAD_REQUEST} --> The request was invalid. See {@link TimeTemplateService#isValidRequest(TimeTemplateRequest)}<br>
+     *         {@link HttpStatus#CREATED} --> The Entry was successfully created.
      * */
     @PostMapping("/create_new")
     public ResponseEntity<Void> createNewTimeTemplate(@RequestBody TimeTemplateRequest request) {
-        logger.info("Create new Time Template endpoint accessed by: {}", servletRequest.getRemoteAddr());
-        if(! TimeTemplateRequest.isValid(request)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        logger.info("Create new TimeTemplate endpoint accessed by: {}", servletRequest.getRemoteAddr());
+        if(!timeTemplateService.isValidRequest(request)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         TimeTemplate timeTemplate = new TimeTemplate(request.getWorkDuration(), request.getNormalPauseDuration(), request.getBigPauseDuration(), request.getWorkCycles());
         repository.save(timeTemplate);
