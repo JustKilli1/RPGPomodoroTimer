@@ -2,7 +2,6 @@ package net.justkilli.timetemplate.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import net.justkilli.timetemplate.TimeTemplate;
-import net.justkilli.timetemplate.repository.TimeTemplateRepository;
 import net.justkilli.timetemplate.request.TimeTemplateRequest;
 
 import net.justkilli.timetemplate.service.TimeTemplateService;

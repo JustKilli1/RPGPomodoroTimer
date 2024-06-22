@@ -40,7 +40,6 @@ public class TimeTemplateService {
         return request.getWorkCycles() > 0;
     }
 
-
     /**
      * Creates a new TimeTemplate Object using the provided TimeTemplateRequest data
      * and saves it to the corresponding database table.
@@ -72,5 +71,4 @@ public class TimeTemplateService {
     private TimeTemplate createTimeTemplate(TimeTemplateRequest request) {
         return new TimeTemplate(request.getWorkDuration(), request.getNormalPauseDuration(), request.getBigPauseDuration(), request.getWorkCycles());
     }
-
 }
