@@ -10,7 +10,7 @@ allprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
-    version = "0.1.11-DEV"
+    version = "0.1.12-DEV"
     group =  "net.justkilli.rpgpomodorotimer"
 
     repositories {
@@ -23,6 +23,7 @@ allprojects {
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation ("org.springframework.boot:spring-boot-starter-web")
         implementation ("org.springframework.boot:spring-boot-devtools")
+        implementation ("org.springframework.boot:spring-boot-starter-security")
         compileOnly("org.projectlombok:lombok")
         runtimeOnly ("org.postgresql:postgresql")
         annotationProcessor ("org.projectlombok:lombok")
