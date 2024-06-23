@@ -1,10 +1,10 @@
-package net.justkilli.timetemplate.service;
+package net.justkilli.rpgpomodorotimer.timetemplate.service;
 
-import net.justkilli.timetemplate.entity.TimeTemplate;
-import net.justkilli.timetemplate.entity.UserTimeTemplate;
-import net.justkilli.timetemplate.repository.TimeTemplateRepository;
-import net.justkilli.timetemplate.repository.UserTimeTemplateRepository;
-import net.justkilli.timetemplate.request.TimeTemplateRequest;
+import net.justkilli.rpgpomodorotimer.timetemplate.entity.TimeTemplate;
+import net.justkilli.rpgpomodorotimer.timetemplate.entity.UserTimeTemplate;
+import net.justkilli.rpgpomodorotimer.timetemplate.repository.TimeTemplateRepository;
+import net.justkilli.rpgpomodorotimer.timetemplate.repository.UserTimeTemplateRepository;
+import net.justkilli.rpgpomodorotimer.timetemplate.request.TimeTemplateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

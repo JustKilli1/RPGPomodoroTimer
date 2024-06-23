@@ -1,10 +1,10 @@
-package net.justkilli.timetemplate.controller;
+package net.justkilli.rpgpomodorotimer.timetemplate.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import net.justkilli.timetemplate.entity.UserTimeTemplate;
-import net.justkilli.timetemplate.request.TimeTemplateRequest;
+import net.justkilli.rpgpomodorotimer.timetemplate.entity.UserTimeTemplate;
+import net.justkilli.rpgpomodorotimer.timetemplate.request.TimeTemplateRequest;
 
-import net.justkilli.timetemplate.service.TimeTemplateService;
+import net.justkilli.rpgpomodorotimer.timetemplate.service.TimeTemplateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

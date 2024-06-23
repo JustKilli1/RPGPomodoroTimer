@@ -1,4 +1,4 @@
-package net.justkilli.timetemplate.request;
+package net.justkilli.rpgpomodorotimer.timetemplate.request;
 
 import lombok.Data;
 

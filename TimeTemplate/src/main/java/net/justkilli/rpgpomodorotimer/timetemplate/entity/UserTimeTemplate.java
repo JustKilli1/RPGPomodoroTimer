@@ -1,4 +1,4 @@
-package net.justkilli.timetemplate.entity;
+package net.justkilli.rpgpomodorotimer.timetemplate.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
