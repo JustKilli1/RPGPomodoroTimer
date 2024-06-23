@@ -10,6 +10,9 @@ allprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
+    version = "0.1.10-DEV"
+    group =  "net.justkilli.rpgpomodorotimer"
+
     repositories {
         mavenCentral()
     }
